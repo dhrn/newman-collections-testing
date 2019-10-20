@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'postmat-alfresco-load-testing';
+  collection: File;
+  constructor(private _http: HttpClient) {
+
+  }
+  handleFileInput(file: FileList) {
+    this.collection = file.item(0);
+  }
+
+  executeCollection() {
+    console.log(this.collection);
+    const formData = new FormData();
+    formData.append('file', this.collection);
+    this._http.post('http://localhost:3000/loadTest', formData).subscribe(
+      (res) => {
+        console.log(res)
+      });
+  }
+
 }

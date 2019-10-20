@@ -1,5 +1,9 @@
 # PostmatAlfrescoLoadTesting
 
+It is about testing the Alfrsco postman collections.
+
+Test results wil be stored in Elasticsearch ans Kibana will be used for visualization
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.3.
 
 ## Development server
